@@ -34,23 +34,53 @@
       'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
-    
+
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    const fifteen = inventors.filter (inventor => {
+      if (inventor.year >= 1500 && inventor.year <= 1599) {
+        return true;
+      }
+    });
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    const firstLast = inventors.map (inventor => {
+      return `${inventor.first} ${inventor.last}`
+    });
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const sorted = inventors.sort (function(a, b) {
+      if (a.year > b.year) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    const yearsLived = inventors.reduce ((total, inventor) => {
+      return total + (inventor.passed - inventor.year);
+    }, 0);
 
     // 5. Sort the inventors by years lived
+    const oldest = inventors.sort (function (a, b) {
+      const oldestGuy = a.passed - a.year;
+      const youngestGuy = b.passed - b.year;
+      if (oldestGuy > youngestGuy) {
+        return -1;
+      } else {
+        return -1;
+      }
+    });
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+    const boulevards = document.querySelector('.mw-category');
+    const links = document.querySelectorAll('a');
 
 
     // 7. sort Exercise
