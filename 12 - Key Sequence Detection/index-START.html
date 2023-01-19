@@ -7,6 +7,20 @@
 </head>
 <body>
 <script>
+
+  const keyPressed = [];
+  const password = 'bazinga'
+
+  window.addEventListener('keyup', (event) => {
+
+    keyPressed.push(event.key);
+    keyPressed.splice(-password.length -1, keyPressed.length - password.length);
+
+    if (keyPressed.join('') == 'bazinga') {
+      cornify_add();
+    }
+    
+  })
 </script>
 </body>
 </html>
